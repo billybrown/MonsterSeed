@@ -65,3 +65,52 @@ body {
     opacity: 0;
     animation: none;
 }
+
+.farm {
+    width: calc(72px * 4);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+}
+
+.parcel {
+    width: 72px;
+    height: 72px;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.stem, .barren img {
+    width: 72px;
+    height: 72px;
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.flower {
+    height: auto;
+    width: 24px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.flower1 {
+    bottom: calc(8px * 2);
+}
+
+.flower2 {
+    bottom: calc(8px * 6);
+    left: calc(8px * 3);
+}
+
+.flower3 {
+    bottom: calc(8px * 4);
+    left: calc(8px * 6);
+}
