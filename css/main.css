@@ -2,6 +2,17 @@ body {
     background: #FCFFE9;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
 .monster {
     width: 72px;
     height: 72px;
@@ -17,8 +28,6 @@ body {
     left: 50%;
     transform: translate(-50%, 0);
     transition: none;
-    max-width: 100%;
-    height: auto;
 }
 
 .monster__breath1 {
@@ -85,9 +94,6 @@ body {
 
 .stem, .barren img {
     width: 72px;
-    height: 72px;
-    max-width: 100%;
-    height: auto;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -99,6 +105,7 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
+    z-index: 100;
 }
 
 .flower1 {
@@ -113,4 +120,8 @@ body {
 .flower3 {
     bottom: calc(8px * 4);
     left: calc(8px * 6);
+}
+
+.harvested {
+    opacity: 0;
 }
