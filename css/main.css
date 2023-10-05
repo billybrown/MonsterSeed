@@ -75,6 +75,70 @@ button {
     animation: none;
 }
 
+.monster__food {
+    position: absolute;
+    top: calc(var(--pixel) * -2);
+    left: 0;
+    width: 100%;
+}
+
+.monster__food .bloom {
+    width: 24px;
+    height: 24px;
+    opacity: 0;
+}
+
+.js-feed .monster__food .bloom {
+    opacity: 1;
+}
+
+.monster.js-feed .monster__breath1,
+.monster.js-feed .monster__breath2,
+.monster.js-feed .monster__breath1,
+.monster.js-feed .monster__breath2 {
+    opacity: 0;
+    animation: none;
+}
+
+.monster.js-feed .monster__open {
+    opacity: 1;
+    animation: .4s eat1 infinite;
+}
+
+.monster.js-feed .monster__breath1 {
+    opacity: 1;
+    animation: .4s eat2 infinite;
+}
+
+.monster.js-feed .monster__closed {
+    opacity: 1;
+    animation: .4s eat3 infinite;
+}
+
+/* Animation Keyframes*/
+@keyframes eat1 {
+    0% { opacity: 1; }
+    40% { opacity: 1; }
+    41% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes eat2 {
+    0% { opacity: 0; }
+    39% { opacity: 0; }
+    40% { opacity: 1; }
+    60% { opacity: 1; }
+    61% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes eat3 {
+    0% { opacity: 0; }
+    59% { opacity: 0; }
+    60% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
 .farm {
     width: calc(72px * 4);
     position: absolute;
@@ -82,6 +146,8 @@ button {
     left: 50%;
     transform: translate(-50%, 0);
     display: flex;
+    height: 72px;
+    overflow: hidden;
 }
 
 .parcel {
@@ -122,6 +188,238 @@ button {
     left: calc(8px * 6);
 }
 
-.harvested {
+.js-harvested .bloom {
     opacity: 0;
+}
+
+.dustwrap {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: -16px;
+    display: none;
+}
+
+@keyframes removescatter {
+    0% { display: block; }
+    99% { display: block; }
+    100% { display: none; }
+}
+
+.js-harvested .dustwrap {
+    display: block;
+}
+
+.js-gone {
+    display: none;
+}
+
+.dust {
+    position: absolute;
+    max-width: none;
+    left: 0;
+    opacity: 0;
+}
+
+:root {
+    --scattertime: .75s;
+    --pixel: 8px;
+}
+
+.dust1 {
+    top: 0;
+    left: calc(var(--pixel * 2));
+    animation: var(--scattertime) scatter1;
+    width: 40px;
+}
+
+.dust2 {
+    top: 0;
+    width: 56px;
+    left: calc(var(--pixel * 1));
+    animation: var(--scattertime) scatter2;
+}
+
+.dust3 {
+    width: 64px;
+    top: var(--pixel);
+    animation: var(--scattertime) scatter3;
+}
+
+.dust4 {
+    width: 72px;
+    top: calc(var(--pixel) * 3);
+    animation: var(--scattertime) scatter4;
+}
+
+.dust5 {
+    width: 72px;
+    top: calc(var(--pixel) * 4);
+    animation: var(--scattertime) scatter5;
+}
+
+.dust6 {
+    width: 72px;
+    top: calc(var(--pixel) * 5);
+    animation: var(--scattertime) scatter6;
+}
+
+.dust7 {
+    width: 80px;
+    top: calc(var(--pixel) * 6);
+    animation: var(--scattertime) scatter7;
+}
+
+.dust8 {
+    width: 80px;
+    top: calc(var(--pixel) * 7);
+    animation: var(--scattertime) scatter8;
+}
+
+.dust9 {
+    width: 72px;
+    top: calc(var(--pixel) * 8);
+    animation: var(--scattertime) scatter9;
+}
+
+.dust10 {
+    width: 81px;
+    top: calc(var(--pixel) * 10);
+    animation: var(--scattertime) scatter10;
+}
+
+.dust11 {
+    width: 40px;
+    top: calc(var(--pixel) * 13);
+    left: calc(var(--pixel) *1);
+    animation: var(--scattertime) scatter11;
+}
+
+.dust12 {
+    width: 40px;
+    top: calc(var(--pixel) * 14);
+    left: calc(var(--pixel) *2);
+    animation: var(--scattertime) scatter12;
+}
+
+.dust13 {
+    width: 8px;
+    top: calc(var(--pixel)* 19);
+    left: calc(var(--pixel) * 7);
+    animation: var(--scattertime) scatter13;
+}
+
+/* Animation Keyframes*/
+@keyframes scatter1 {
+    0% { opacity: 1; }
+    5% { opacity: 1; }
+    6% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes scatter2 {
+    0% { opacity: 0; }
+    5% { opacity: 0; }
+    6% { opacity: 1; }
+    11% { opacity: 1; }
+    12% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes scatter3 {
+    0% { opacity: 0; }
+    11% { opacity: 0; }
+    12% { opacity: 1; }
+    19% { opacity: 1; }
+    20% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes scatter4 {
+    0% { opacity: 0; }
+    19% { opacity: 0; }
+    20% { opacity: 1; }
+    27% { opacity: 1; }
+    28% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes scatter5 {
+    0% { opacity: 0; }
+    27% { opacity: 0; }
+    28% { opacity: 1; }
+    35% { opacity: 1; }
+    36% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes scatter6 {
+    0% { opacity: 0; }
+    35% { opacity: 0; }
+    36% { opacity: 1; }
+    43% { opacity: 1; }
+    44% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes scatter7 {
+    0% { opacity: 0; }
+    43% { opacity: 0; }
+    44% { opacity: 1; }
+    51% { opacity: 1; }
+    52% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes scatter8 {
+    0% { opacity: 0; }
+    51% { opacity: 0; }
+    52% { opacity: 1; }
+    59% { opacity: 1; }
+    60% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes scatter9 {
+    0% { opacity: 0; }
+    59% { opacity: 0; }
+    60% { opacity: 1; }
+    67% { opacity: 1; }
+    68% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes scatter10 {
+    0% { opacity: 0; }
+    67% { opacity: 0; }
+    68% { opacity: 1; }
+    75% { opacity: 1; }
+    76% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes scatter11 {
+    0% { opacity: 0; }
+    75% { opacity: 0; }
+    76% { opacity: 1; }
+    83% { opacity: 1; }
+    84% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes scatter12 {
+    0% { opacity: 0; }
+    83% { opacity: 0; }
+    84% { opacity: 1; }
+    91% { opacity: 1; }
+    92% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes scatter13 {
+    0% { opacity: 0; }
+    91% { opacity: 0; }
+    92% { opacity: 1; }
+    100% { opacity: 1; }
 }
