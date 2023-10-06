@@ -1,5 +1,11 @@
+@font-face {
+    font-family: "pressStart";
+    src: url("../fonts/Press_Start_2P/PressStart2P-Regular.ttf");
+}
+
 body {
     background: #FCFFE9;
+    font-family: pressStart;
 }
 
 img {
@@ -11,6 +17,14 @@ button {
     border: none;
     background: transparent;
     padding: 0;
+}
+
+.counter {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 32px;
+    color: #C818A1;
 }
 
 .monster {
@@ -139,15 +153,18 @@ button {
     100% { opacity: 1; }
 }
 
-.farm {
-    width: calc(72px * 4);
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-    display: flex;
+.farmWrap {
+    width: 100vw;
     height: 72px;
     overflow: hidden;
+    position: absolute;
+    bottom: 0;
+}
+
+.farm {
+    display: flex;
+    height: 72px;
+    width: 100%;
 }
 
 .parcel {
@@ -188,7 +205,7 @@ button {
     left: calc(8px * 6);
 }
 
-.js-harvested .bloom {
+.js-harvested .bloomwrap {
     opacity: 0;
 }
 
