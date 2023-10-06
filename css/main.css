@@ -91,15 +91,36 @@ button {
 
 .monster__food {
     position: absolute;
-    top: calc(var(--pixel) * -2);
+    top: calc(var(--pixel) * -5);
+    left: calc(var(--pixel) * 3);
+    display: flex;
+}
+
+.monster__food-item {
+    width: calc(24px + var(--pixel));
+    height: 24px;
+    position: relative;
+    transition: left .5s ease;
+}
+
+.monster__food .bloomWrap {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    bottom: 0;
     left: 0;
-    width: 100%;
+    overflow: hidden;
+    animation: none;
 }
 
 .monster__food .bloom {
     width: 24px;
     height: 24px;
-    opacity: 0;
+    opacity: 1;
+}
+
+.js-bloomEaten .bloomWrap {
+    animation: 1.3s bloomEat infinite;
 }
 
 .js-feed .monster__food .bloom {
@@ -153,6 +174,15 @@ button {
     100% { opacity: 1; }
 }
 
+@keyframes bloomEat {
+    0% { height: 24px; }
+    32% { height: 24px; }
+    33% { height: 16px; }
+    65% { height: 16px; }
+    66% { height: 8px; }
+    100% { height: 8px; }
+}
+
 .farmWrap {
     width: 100vw;
     height: 72px;
@@ -189,6 +219,10 @@ button {
     bottom: 0;
     left: 0;
     z-index: 100;
+}
+
+.bloomwrap:hover {
+    cursor: pointer;
 }
 
 .flower1 {

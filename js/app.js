@@ -1,6 +1,7 @@
 
 
 var monster = document.getElementById("monster");
+var monsterFood = document.getElementById("monsterFood");
 var farm = document.getElementById("farm");
 var counter = document.getElementById("counter");
 var counterNumber = 0;
@@ -100,22 +101,36 @@ var test = `
       `;
 
 var flowers = document.getElementsByClassName("flower");
+var monsterPlate = 0;
 
 var harvest = function() {
     var flower = this;
     if (!flower.classList.contains("js-harvested")) {
+        var uniqueFlowerId = "unique-flower-" + counterNumber;
         counterNumber++;
         counter.innerHTML = counterNumber;
-    }
-    flower.classList.add('js-harvested');
-    setTimeout(function(){
-        flower.classList.add('js-gone');
-    }, 750);
+        
+        // remove the flower from the farm
+        flower.classList.add('js-harvested');
+        setTimeout(function(){
+            flower.classList.add('js-gone');
+        }, 750);
 
-    monster.classList.add('js-feed');
-    setTimeout(function(){
-        monster.classList.remove('js-feed');
-    }, 1300);
+        // add the flower to the monster's plate
+        monsterPlate++;
+
+        // feed the monster
+        if (!monster.classList.contains("js-feed")) {
+            monsterFood.innerHTML += '<div class="monster__food-item" id="'+ uniqueFlowerId + '" ><div class="bloomWrap"><img class="bloom" src="img/Plant1_Flower1.svg"/></div></div>';
+            monster.classList.add('js-feed');
+            document.getElementById(uniqueFlowerId).classList.add('js-bloomEaten');
+            setTimeout(function(){
+                monster.classList.remove('js-feed');
+                document.getElementById(uniqueFlowerId).remove();
+                monsterPlate--; 
+            }, 1300);
+        }
+    }
 };
 
 for (var i = 0; i < flowers.length; i++) {
