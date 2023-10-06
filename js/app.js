@@ -1,6 +1,7 @@
 
 
 var monster = document.getElementById("monster");
+var monsterSprite = document.getElementById("monsterSprite");
 var monsterFood = document.getElementById("monsterFood");
 var farm = document.getElementById("farm");
 var counter = document.getElementById("counter");
@@ -23,6 +24,9 @@ for (var i = 0; i < maxParcels; i++) {
         farm.innerHTML += '<div class="parcel barren"><img src="img/Barren' + random + '.svg"/></div>';
     }
 }
+
+var randomMonster = getRandomInt(3) + 1;
+monsterSprite.innerHTML = '<img class="monster__breath1" src="img/M' + randomMonster + '_1.svg" /><img class="monster__breath2" src="img/M' + randomMonster + '_2.svg" /><img class="monster__open" src="img/M' + randomMonster + '_3.svg" /><img class="monster__closed" src="img/M' + randomMonster + '_4.svg" />';
 
 
 var test = `
