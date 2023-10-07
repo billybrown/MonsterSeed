@@ -93,14 +93,16 @@ button {
     position: absolute;
     top: calc(var(--pixel) * -5);
     left: calc(var(--pixel) * 3);
-    display: flex;
 }
 
 .monster__food-item {
-    width: calc(24px + var(--pixel));
+    width: 24px;
     height: 24px;
-    position: relative;
-    transition: left .5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(0);
+    transition: transform .2s;
 }
 
 .monster__food .bloomWrap {
@@ -111,12 +113,20 @@ button {
     left: 0;
     overflow: hidden;
     animation: none;
+    opacity: 0;
+    transform: translateY(-24px);
+    transition: transform .2s, opacity .2s;
 }
 
 .monster__food .bloom {
     width: 24px;
     height: 24px;
     opacity: 1;
+}
+
+.js-onPlate .bloomWrap {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .js-bloomEaten .bloomWrap {

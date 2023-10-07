@@ -107,6 +107,32 @@ var test = `
 var flowers = document.getElementsByClassName("flower");
 var monsterPlate = 0;
 
+function movePlate() {
+  var foods = document.getElementsByClassName("monster__food-item");
+  var spaceCounter = 0;
+  for (var i = 0; i < foods.length; i++) {
+    foods[i].style.transform = "translate(" + spaceCounter + "px)";
+    spaceCounter += 32;
+    var uniqueFlowerId = foods[i].id;
+    eatBloom(uniqueFlowerId);
+  }
+}
+
+function eatBloom(theFlower) {
+  monster.classList.add('js-feed');
+  document.getElementById(theFlower).classList.add('js-bloomEaten');
+  setTimeout(function(){
+    monster.classList.remove('js-feed');
+    document.getElementById(theFlower).remove();
+  }, 1300);
+  setTimeout(function(){
+    monsterPlate--; 
+    if (monsterPlate >= 1) {
+      movePlate();
+    }
+  }, 1301);
+}
+
 var harvest = function() {
     var flower = this;
     if (!flower.classList.contains("js-harvested")) {
@@ -122,17 +148,18 @@ var harvest = function() {
 
         // add the flower to the monster's plate
         monsterPlate++;
+        monsterFood.innerHTML += '<div class="monster__food-item" id="'+ uniqueFlowerId + '" ><div class="bloomWrap"><img class="bloom" src="img/Plant1_Flower1.svg"/></div></div>';
+        setTimeout(function(){
+          document.getElementById(uniqueFlowerId).classList.add('js-onPlate');
+        }, 1);
 
         // feed the monster
-        if (!monster.classList.contains("js-feed")) {
-            monsterFood.innerHTML += '<div class="monster__food-item" id="'+ uniqueFlowerId + '" ><div class="bloomWrap"><img class="bloom" src="img/Plant1_Flower1.svg"/></div></div>';
-            monster.classList.add('js-feed');
-            document.getElementById(uniqueFlowerId).classList.add('js-bloomEaten');
-            setTimeout(function(){
-                monster.classList.remove('js-feed');
-                document.getElementById(uniqueFlowerId).remove();
-                monsterPlate--; 
-            }, 1300);
+        if (monsterPlate == 1) {
+          eatBloom(uniqueFlowerId);
+        } else if (monsterPlate == 2) {
+          document.getElementById(uniqueFlowerId).style.transform = "translate(32px)";
+        } else if (monsterPlate >= 3) {
+          document.getElementById(uniqueFlowerId).style.transform = "translate(64px)";
         }
     }
 };
