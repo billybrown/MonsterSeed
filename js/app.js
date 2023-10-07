@@ -25,7 +25,7 @@ for (var i = 0; i < maxParcels; i++) {
     }
 }
 
-var randomMonster = getRandomInt(3) + 1;
+var randomMonster = getRandomInt(6) + 1;
 monsterSprite.innerHTML = '<img class="monster__breath1" src="img/M' + randomMonster + '_1.svg" /><img class="monster__breath2" src="img/M' + randomMonster + '_2.svg" /><img class="monster__open" src="img/M' + randomMonster + '_3.svg" /><img class="monster__closed" src="img/M' + randomMonster + '_4.svg" />';
 
 
