@@ -3,9 +3,22 @@
     src: url("../fonts/Press_Start_2P/PressStart2P-Regular.ttf");
 }
 
+:root {
+    --scattertime: .75s;
+    --pixel: 8px;
+    --dayColor: #FCFFE9;
+    --nightColor: #060f24;
+    --monsterColor: #1FCEF4;
+}
+
 body {
-    background: #FCFFE9;
+    background: var(--dayColor);
     font-family: pressStart;
+    transition: background 2s ease;
+}
+
+.js-night {
+    background:var(--nightColor);
 }
 
 img {
@@ -19,12 +32,38 @@ button {
     padding: 0;
 }
 
-.counter {
+.cornerText {
     position: absolute;
     top: 8px;
     right: 8px;
     font-size: 32px;
     color: #C818A1;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.foodCounter {
+    font-size: 32px;
+}
+
+.dayCounter {
+    font-size: 10px;
+    padding-right: 2px;
+}
+
+.timer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 2px;
+    height: 0%;
+    z-index: 1000;
+    background:var(--monsterColor);
+    transition: background 2s ease, height 20s linear;
+}
+
+.timer.js-onward {
+    height: 100%;
 }
 
 .monster {
@@ -281,11 +320,6 @@ button {
     max-width: none;
     left: 0;
     opacity: 0;
-}
-
-:root {
-    --scattertime: .75s;
-    --pixel: 8px;
 }
 
 .dust1 {
